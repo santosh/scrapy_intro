@@ -10,4 +10,5 @@ from itemadapter import ItemAdapter
 
 class ScrapyIntroPipeline:
     def process_item(self, item, spider):
+        print("Quote: " + item['title'])
         return item

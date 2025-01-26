@@ -12,8 +12,8 @@ class QuoteSpider(scrapy.Spider):
         all_div_quotes = response.css("div.quote")
 
         for quotes in all_div_quotes:
-            title = quotes.css("span.text::text").extract()
-            author = quotes.css(".author::text").extract()
+            title = quotes.css("span.text::text").extract_first()
+            author = quotes.css(".author::text").extract_first()
             tag = quotes.css(".tag::text").extract()
 
             items["title"] = title
