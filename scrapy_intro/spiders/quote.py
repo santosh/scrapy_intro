@@ -6,6 +6,9 @@ class QuoteSpider(scrapy.Spider):
     name = "quote"
     start_urls = ["https://quotes.toscrape.com"]
 
+    def __init__(self):
+        self.download_delay = 3
+
     def parse(self, response):
         items = QuoteItem()
 
@@ -21,4 +24,9 @@ class QuoteSpider(scrapy.Spider):
             items["tag"] = tag
 
             yield items
+
+        next_page = response.css("li.next a::attr(href)").get()
+
+        if next_page is not None:
+            yield response.follow(next_page, callback=self.parse)
 
