@@ -4,6 +4,10 @@ Learning Scrapy through doing it.
 
 ## About the project
 
+Run mongo instance:
+
+    docker compose up -d
+
 - Run quote crawler:
 
     scrapy crawl quote
