@@ -11,4 +11,9 @@ class QuoteItem(scrapy.Item):
     title = scrapy.Field()
     author = scrapy.Field()
     tag = scrapy.Field()
-    pass
+
+class MiniPC(scrapy.Item):
+    title = scrapy.Field()
+    price = scrapy.Field()
+    url = scrapy.Field()
+    rating = scrapy.Field()
